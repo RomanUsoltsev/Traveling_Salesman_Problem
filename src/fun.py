@@ -32,12 +32,10 @@ def route_length(list_cities, route):
     for xy in range(2):
         sum += (list_cities[route[0]][xy] - list_cities[route[-1]][xy]) ** 2
     length += sum ** (1 / 2)
-    # print("penal = |", length_penalty, "|\n len = |", length, "|\n")
     return length + length_penalty
 
 
 def quality(list_cities, routes):
-    # проведем оценку маршрутов
     length_penalty = np.zeros([len(routes)])
     for i in range(len(routes)):
         length_penalty[i] = route_length(list_cities, routes[i])
@@ -46,7 +44,7 @@ def quality(list_cities, routes):
 
 
 def generate_routes(number_cities, number_routes):
-    list_cities = np.random.random([number_cities, 2])  # координаты городов
+    list_cities = np.random.random([number_cities, 2])
     routes = []
     for i in range(number_routes):
         routes.append(np.random.permutation(number_cities))
