@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# нарисовать маршрут
 def route_image(list_cities, route):
     for i in range(list_cities.shape[0]):
         plt.annotate(i, (list_cities[i][0], list_cities[i][1]), fontsize=14)
@@ -176,7 +175,7 @@ def insert_route(route_1, route_2, count_insert):
             route_3 = insert_arr(route_2, arr_insert, insert_index, count_insert)
 
     route_4 = np.zeros(len(route_1), dtype=int)
-    if (route_3.all() == route_4.all()):
+    if route_3.all() == route_4.all():
         route_3 = route_2
     return route_3
 
